@@ -7,4 +7,6 @@ jobs:
     name: Manual Release
     runs-on: ubuntu-latest
     steps:
-      - run: echo $TESTIO
+      - uses: actions/checkout@v3
+      - run: echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > .npmrc
+      - run: cat .npmrc
