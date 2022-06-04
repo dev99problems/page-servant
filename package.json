@@ -1,0 +1,16 @@
+{
+  "name": "page_servant",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "changeset": "changeset",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Eugene Chulkov <genechulkov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.22.0"
+  }
+}
