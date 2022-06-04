@@ -7,9 +7,6 @@
     "changeset": "changeset",
     "test": "pnpm run -r test"
   },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
-  },
   "keywords": [],
   "author": "Eugene Chulkov <genechulkov@gmail.com>",
   "license": "MIT",
