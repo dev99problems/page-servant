@@ -1,0 +1,15 @@
+{
+  "name": "@dev99problems/page-servant_bar",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified in BAR\""
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
+  "keywords": [],
+  "author": "Eugene Chulkov <genechulkov@gmail.com>",
+  "license": "MIT"
+}
