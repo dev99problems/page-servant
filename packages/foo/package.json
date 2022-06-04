@@ -1,10 +1,13 @@
 {
-  "name": "@page_servant/foo",
+  "name": "@dev99problems/page-servant_foo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified if FOO\""
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   },
   "keywords": [],
   "author": "",

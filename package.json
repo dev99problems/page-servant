@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "changeset": "changeset",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pnpm run -r test"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   },
   "keywords": [],
   "author": "Eugene Chulkov <genechulkov@gmail.com>",
