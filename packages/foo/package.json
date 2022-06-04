@@ -1,6 +1,6 @@
 {
   "name": "@dev99problems/page-servant_foo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,6 @@
     "registry":"https://npm.pkg.github.com"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Eugene Chulkov <genechulkov@gmail.com>",
+  "license": "MIT"
 }
