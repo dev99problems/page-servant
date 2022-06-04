@@ -60,12 +60,12 @@ jobs:
           more .npmrc
           pnpm exec changeset publish
 
-#      - name: Persist in git
-#        run: |
-#          if [[ -n $(git status --porcelain) ]]; then
-#            git add .
-#            git commit -m '[ci skip] publish packages'
-#            git push -u origin ${CIRCLE_BRANCH} --follow-tags
-#          else
-#            echo "No changes in GIT, not pushing"
-#          fi
+      - name: Persist in git
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .
+            git commit -m '[ci skip] publish packages'
+            git push -u origin ${CIRCLE_BRANCH} --follow-tags
+          else
+            echo "No changes in GIT, not pushing"
+          fi
