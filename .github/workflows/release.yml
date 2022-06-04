@@ -37,13 +37,35 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-#  build:
-#    name: Manual Release
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - run: echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > .npmrc
-#      - run: cat .npmrc
+      # this can be done easier in @setup-node action
+      - name: Registry auth
+        run: |
+          echo '//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}
+          @dev99problems:registry=https://npm.pkg.github.com
+          always-auth=true' > .npmrc
+
+      - name: Build Packages
+        run: |
+          pnpm -r build
+          ls -la packages/notion
+
+      - name: Version bump
+        run: |
+          pnpm exec changeset version
+
+      - name: Publish
+        run: |
+          more .npmrc
+          pnpm exec changeset publish
+
+#      - name: Persist in git
+#        run: |
+#          if [[ -n $(git status --porcelain) ]]; then
+#            git add .
+#            git commit -m '[ci skip] publish packages'
+#            git push -u origin ${CIRCLE_BRANCH} --follow-tags
+#          else
+#            echo "No changes in GIT, not pushing"
+#          fi
