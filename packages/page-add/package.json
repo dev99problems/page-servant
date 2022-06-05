@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "wrangler dev",
-    "publish": "wrangler publish"
+    "dev": "wrangler dev",
+    "publish": "wrangler publish",
+    "logs": " wrangler tail --format=pretty"
   },
   "dependencies": {
     "@dev99problems/page-servant_notion": "0.1.0"

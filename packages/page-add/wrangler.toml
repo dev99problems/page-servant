@@ -2,10 +2,6 @@ name = "pager_add-page"
 main = "src/index.js"
 compatibility_date = "2022-06-05"
 
-[vars]
-NOTION_TOKEN = ""
-JOURNAL_ID= ""
-TOPIC = "ruby"
-
 [triggers]
-crons = ["*/2 * * * *"]
+# done for testing purposes
+crons = ["*/1 * * * *"]
