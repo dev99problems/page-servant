@@ -1,10 +1,15 @@
 name: Release
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
+    paths:
+      - '**.js'
 
 jobs:
-  cache-and-install:
+  release_if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:

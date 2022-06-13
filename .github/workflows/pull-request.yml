@@ -2,6 +2,10 @@ name: Release
 
 on:
   pull_request:
+    types:
+        - opened
+    paths:
+      - '**.js'
 
 jobs:
   install-and-build:
@@ -36,14 +40,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
       - name: Registry auth
         run: |
           echo '//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}
           @dev99problems:registry=https://npm.pkg.github.com
           always-auth=true' > .npmrc
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build Packages
         run: |
