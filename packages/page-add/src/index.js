@@ -1,9 +1,4 @@
-import { main as createNewPage, get_notion as getNotion } from '@dev99problems/page-servant_notion';
-
-// NOTE: NOTION_TOKEN & JOURNAL_ID are
-// worker vars, set through the dashboard
-const TOPIC = 'ruby';
-const notion = getNotion(NOTION_TOKEN);
+import { page_creation_flow as createNewPage } from '@dev99problems/page-servant_notion';
 
 addEventListener('scheduled', (event) => {
   event.waitUntil(triggerEvent(event.scheduledTime));
@@ -11,7 +6,7 @@ addEventListener('scheduled', (event) => {
 
 async function triggerEvent(timestamp) {
   console.log('timestamp of last trigger', timestamp);
-  await createNewPage(notion, JOURNAL_ID, TOPIC);
+  await createNewPage(NOTION_TOKEN, JOURNAL_ID, TOPIC);
 }
 
 

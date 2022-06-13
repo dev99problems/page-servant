@@ -2,6 +2,9 @@ name = "pager_add-page"
 main = "src/index.js"
 compatibility_date = "2022-06-05"
 
+[vars]
+TOPIC = "ruby"
+
 [triggers]
 # done for testing purposes
-crons = ["*/1 * * * *"]
+crons = ["*/2 * * * *"]
