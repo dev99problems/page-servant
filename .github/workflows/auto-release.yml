@@ -1,15 +1,12 @@
-name: Release
+name: Auto-Release
 
 on:
-  pull_request:
-    types:
-      - closed
-    paths:
-      - '**.js'
+  push:
+    branches:
+      - 'main'
 
 jobs:
-  release_if_merged:
-    if: github.event.pull_request.merged == true
+  install_build_release:
     runs-on: ubuntu-latest
 
     steps:

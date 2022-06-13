@@ -1,7 +1,7 @@
 {
   "name": "page-servant",
   "version": "0.0.0",
-  "description": "",
+  "description": "Small app for auto adding/removing pages in Notion on schedule",
   "main": "index.js",
   "scripts": {
     "changeset": "changeset",
