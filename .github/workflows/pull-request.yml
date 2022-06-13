@@ -1,9 +1,7 @@
-name: Release
+name: Pull Request Open
 
 on:
   pull_request:
-    types:
-        - opened
     paths:
       - '**.js'
 
