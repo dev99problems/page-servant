@@ -1,6 +1,6 @@
 {
   "name": "@dev99problems/page-servant_notion",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Custom notion utils to auto create/delete Notion pages on daily bases. Used by Cloudflare workers",
   "main": "src/index.js",
   "type": "module",
