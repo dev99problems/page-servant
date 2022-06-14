@@ -44,32 +44,57 @@ jobs:
           @dev99problems:registry=https://npm.pkg.github.com
           always-auth=true' > .npmrc
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build Packages
+      - name: Build & Publish
         run: |
-          pnpm -r build
-
-      - name: Version bump
-        run: |
-          pnpm exec changeset version
-
-      - name: Publish
-        run: |
-          pnpm exec changeset publish
-
-      - name: Configure git
-        run: |
-          git config user.name dev99problems
-          git config user.email genechulkov@gmail.com
-
-      - name: Persist in git
-        run: |
-          if [[ -n $(git status --porcelain) ]]; then
-            git add .
-            git commit -m '[ci skip] publish packages'
-            git push -u origin main --follow-tags
+          NUMBER_OF_CHANGESET_FILES=$(ls -l .changeset | grep -c .md)
+          
+          if [ $NUMBER_OF_CHANGESET_FILES -eq 0 ]; then
+            echo "equals 0"
           else
-            echo "No changes in GIT, not pushing"
-          fi
+            echo ">= 1"
+            pnpm install --frozen-lockfile
+            pnpm -r build
+            pnpm exec changeset version
+#            pnpm exec changeset publish
+#          fi
+
+    #      - name: Persist in git
+    #        run: |
+    #          if [[ -n $(git status --porcelain) ]]; then
+    #            git add .
+    #            git commit -m '[ci skip] publish packages'
+    #            git push -u origin ${CIRCLE_BRANCH} --follow-tags
+    #          else
+    #            echo "No changes in GIT, not pushing"
+    #          fi
+
+
+#      - name: Install dependencies
+#        run: pnpm install --frozen-lockfile
+#
+#      - name: Build Packages
+#        run: |
+#          pnpm -r build
+#
+#      - name: Version bump
+#        run: |
+#          pnpm exec changeset version
+#
+#      - name: Publish
+#        run: |
+#          pnpm exec changeset publish
+#
+#      - name: Configure git
+#        run: |
+#          git config user.name dev99problems
+#          git config user.email genechulkov@gmail.com
+#
+#      - name: Persist in git
+#        run: |
+#          if [[ -n $(git status --porcelain) ]]; then
+#            git add .
+#            git commit -m '[ci skip] publish packages'
+#            git push -u origin main --follow-tags
+#          else
+#            echo "No changes in GIT, not pushing"
+#          fi
